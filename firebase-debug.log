@@ -1,0 +1,98 @@
+[debug] [2020-07-16T06:09:57.810Z] ----------------------------------------------------------------------
+[debug] [2020-07-16T06:09:57.812Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\hjhj4\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting
+[debug] [2020-07-16T06:09:57.812Z] CLI Version:   8.6.0
+[debug] [2020-07-16T06:09:57.812Z] Platform:      win32
+[debug] [2020-07-16T06:09:57.813Z] Node Version:  v12.18.1
+[debug] [2020-07-16T06:09:57.815Z] Time:          Thu Jul 16 2020 15:09:57 GMT+0900 (GMT+09:00)
+[debug] [2020-07-16T06:09:57.815Z] ----------------------------------------------------------------------
+[debug] [2020-07-16T06:09:57.816Z] 
+[debug] [2020-07-16T06:09:57.829Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-07-16T06:09:57.830Z] > authorizing via signed-in user
+[debug] [2020-07-16T06:09:57.831Z] [iam] checking project project3-ebc99 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-07-16T06:09:57.834Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/project3-ebc99:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2020-07-16T06:09:58.702Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 16 Jul 2020 06:09:57 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=574","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-07-16T06:09:58.704Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/project3-ebc99  
+ 
+[debug] [2020-07-16T06:09:59.477Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 16 Jul 2020 06:09:58 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-07-16T06:09:59.707Z] TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received undefined
+    at validateString (internal/validators.js:120:11)
+    at Object.join (path.js:375:7)
+    at Object.checkFunctionsSDKVersion [as fn] (C:\Users\hjhj4\AppData\Roaming\npm\node_modules\firebase-tools\lib\checkFirebaseSDKVersion.js:34:28)
+    at Command.<anonymous> (C:\Users\hjhj4\AppData\Roaming\npm\node_modules\firebase-tools\lib\command.js:160:30)
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\hjhj4\AppData\Roaming\npm\node_modules\firebase-tools\lib\command.js:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2020-07-16T06:25:36.016Z] ----------------------------------------------------------------------
+[debug] [2020-07-16T06:25:36.019Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\hjhj4\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting
+[debug] [2020-07-16T06:25:36.019Z] CLI Version:   8.6.0
+[debug] [2020-07-16T06:25:36.019Z] Platform:      win32
+[debug] [2020-07-16T06:25:36.019Z] Node Version:  v12.18.1
+[debug] [2020-07-16T06:25:36.021Z] Time:          Thu Jul 16 2020 15:25:36 GMT+0900 (GMT+09:00)
+[debug] [2020-07-16T06:25:36.022Z] ----------------------------------------------------------------------
+[debug] [2020-07-16T06:25:36.022Z] 
+[debug] [2020-07-16T06:25:36.033Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-07-16T06:25:36.034Z] > authorizing via signed-in user
+[debug] [2020-07-16T06:25:36.035Z] [iam] checking project project3-ebc99 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-07-16T06:25:36.040Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/project3-ebc99:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2020-07-16T06:25:36.922Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 16 Jul 2020 06:25:35 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=576","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-07-16T06:25:36.923Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/project3-ebc99  
+ 
+[debug] [2020-07-16T06:25:37.503Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 16 Jul 2020 06:25:36 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-07-16T06:25:37.750Z] TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received undefined
+    at validateString (internal/validators.js:120:11)
+    at Object.join (path.js:375:7)
+    at Object.checkFunctionsSDKVersion [as fn] (C:\Users\hjhj4\AppData\Roaming\npm\node_modules\firebase-tools\lib\checkFirebaseSDKVersion.js:34:28)
+    at Command.<anonymous> (C:\Users\hjhj4\AppData\Roaming\npm\node_modules\firebase-tools\lib\command.js:160:30)
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\hjhj4\AppData\Roaming\npm\node_modules\firebase-tools\lib\command.js:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2020-07-20T06:50:58.276Z] ----------------------------------------------------------------------
+[debug] [2020-07-20T06:50:58.279Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\hjhj4\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting
+[debug] [2020-07-20T06:50:58.279Z] CLI Version:   8.6.0
+[debug] [2020-07-20T06:50:58.280Z] Platform:      win32
+[debug] [2020-07-20T06:50:58.280Z] Node Version:  v12.18.1
+[debug] [2020-07-20T06:50:58.283Z] Time:          Mon Jul 20 2020 15:50:58 GMT+0900 (GMT+09:00)
+[debug] [2020-07-20T06:50:58.283Z] ----------------------------------------------------------------------
+[debug] [2020-07-20T06:50:58.283Z] 
+[debug] [2020-07-20T06:50:58.305Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-07-20T06:50:58.306Z] > authorizing via signed-in user
+[debug] [2020-07-20T06:50:58.306Z] [iam] checking project project3-ebc99 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-07-20T06:50:58.309Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-07-20T06:50:58.310Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-07-20T06:50:58.330Z] [iam] error while checking permissions, command may fail: FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2020-07-20T06:50:58.332Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-07-20T06:50:58.332Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-07-20T06:50:58.338Z] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2020-07-20T06:50:58.351Z] FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+    at Object.<anonymous> (C:\Users\hjhj4\AppData\Roaming\npm\node_modules\firebase-tools\lib\auth.js:23:32)
+    at Module._compile (internal/modules/cjs/loader.js:1138:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1158:10)
+    at Module.load (internal/modules/cjs/loader.js:986:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:879:14)
+    at Module.require (internal/modules/cjs/loader.js:1026:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (C:\Users\hjhj4\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\login.js:20:14)
+    at Module._compile (internal/modules/cjs/loader.js:1138:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1158:10)
+    at Module.load (internal/modules/cjs/loader.js:986:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:879:14)
+    at Module.require (internal/modules/cjs/loader.js:1026:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at loadCommand (C:\Users\hjhj4\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\index.js:5:19)
+    at module.exports (C:\Users\hjhj4\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\index.js:89:20)
+[error] 
+[error] Error: Failed to get Firebase project project3-ebc99. Please make sure the project exists and your account has permission to access it.

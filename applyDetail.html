@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Smurf Farm</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript>
+    <link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+  <style>
+    .apply {
+      width: 100%;
+    }
+  </style>
+  <script src="./assets/js/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#header_part").load("header.html")
+    });
+    $(document).ready(function () {
+      $("#footer_part").load("footer.html")
+    });
+  </script>
+</head>
+
+<body class="is-preload" id="ddd">
+  <!-- Wrapper -->
+  <div id="wrapper">
+
+    <div id="intro">
+      <h1>WE ARE<br />
+        SMURF FARM</h1>
+      <p>당신도 농장의 주인이 될 수 있습니다!
+      </p>
+      </a>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+      <a href="index.html" class="logo">SMURF_FARM</a>
+    </header>
+    <!-- Nav -->
+    <nav id="nav">
+      <ul class="links">
+        <li id=aa><a href="index.html">Welcome</a></li>
+        <li id=bb><a href="introduce.html">소개</a></li>
+        <li id=cc><a href="boardList.html">질의응답</a></li>
+        <li id=dd><a id="apply2" onclick="adminCheck()"> 신청 </a></li>
+        <li id=ee><a id="loginCheck" href="login.html"> 로그인 </a></li>
+        <li id=ff><a id="download"
+            href="https://www.dropbox.com/s/u0fhd1njoh07fos/app-release.apk?dl=0"> 어플
+            다운로드 </a></li>
+
+      </ul>
+      <ul class="icons">
+        <li><a href="https://www.instagram.com/smurf_farm/?hl=ko" class="icon brands fa-facebook-f"><span
+              class="label">Facebook</span></a></li>
+        <li><a href="https://www.instagram.com/smurf_farm/?hl=ko" class="icon brands fa-instagram"><span
+              class="label">Instagram</span></a></li>
+      </ul>
+    </nav>
+    <!-- Main -->
+    <div id="main-wrapper">
+      <article class="post featured">
+        <h2 style="text-align: center;">신청목록</h2>
+        <p style="text-align: center;">
+          스머프팜의 예비회원입니다. 친절하게 답해주세요.
+        </p>
+        <table class='apply' style="text-align: center; border: 1px solid #dddddd">
+          <thead>
+            <tr>
+              <th colspan="2" style="text-align: center;">신청서</th>
+              </th>
+            </tr>
+          </thead>
+          <tr id="apply_category">
+            <td>
+              카테고리
+            </td>
+          </tr>
+          <tr id="apply_name">
+            <td>
+              신청자
+            </td>
+          </tr>
+          <tr id="apply_tell">
+            <td>
+              상담 번호
+            </td>
+          </tr>
+          <tr id="apply_date">
+            <td>
+              게시일
+            </td>
+          </tr>
+          <tr id="apply_message">
+            <td>
+              내용
+            </td>
+          </tr>
+          <tr id="apply_MCall">
+            <td>
+              주간통화 여부
+            </td>
+          </tr>
+          <tr id="apply_NCall">
+            <td>
+              야간통화 여부
+            </td>
+          </tr>
+        </table>
+        <table id="comment_tb" class='apply'>
+          <tr>
+        </table>
+        <div id=showComment>
+        </div>
+      </article>
+    </div>
+    <footer id="footer_part"></footer>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-database.js"></script>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.scrollex.min.js"></script>
+  <script src="assets/js/jquery.scrolly.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    var apply_key = sessionStorage.getItem("apply_key");
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyDGxZI8-Y7M3Zw2esFlYqqLqOLZt9fb_uM",
+      authDomain: "project3-ebc99.firebaseapp.com",
+      databaseURL: "https://project3-ebc99.firebaseio.com",
+      projectId: "project3-ebc99",
+      storageBucket: "project3-ebc99.appspot.com",
+      messagingSenderId: "637799049234",
+      appId: "1:637799049234:web:45904e60f763046df650cb",
+      measurementId: "G-7PNR1Z5R7D",
+    };
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    var database = firebase.database();
+
+    function apply_Detail() {
+
+      const apply_ref = database.ref("apply")
+      apply_ref.child(apply_key).once('value', function (childSnapshot) {
+        const apply_category = document.createElement("td");
+        const apply_name = document.createElement("td");
+        const apply_tell = document.createElement("td");
+        const apply_date = document.createElement("td");
+        const apply_message = document.createElement("td");
+        const apply_MCall = document.createElement("td");
+        const apply_NCall = document.createElement("td");
+
+
+        apply_category.innerText = childSnapshot.val().apply_category;
+        apply_name.innerText = childSnapshot.val().apply_name;
+        apply_tell.innerText = childSnapshot.val().apply_tell;
+        apply_date.innerText = childSnapshot.val().apply_date;
+        apply_message.innerText = childSnapshot.val().apply_message;
+        apply_MCall.innerText = childSnapshot.val().apply_MCall;
+        apply_NCall.innerText = childSnapshot.val().apply_NCall;
+        
+        document.getElementById("apply_category").appendChild(apply_category);
+        document.getElementById("apply_name").appendChild(apply_name);
+        document.getElementById("apply_tell").appendChild(apply_tell);
+        document.getElementById("apply_date").appendChild(apply_date);
+        document.getElementById("apply_message").appendChild(apply_message);
+        document.getElementById("apply_MCall").appendChild(apply_MCall);
+        document.getElementById("apply_NCall").appendChild(apply_NCall);
+
+      });
+    }
+
+    apply_Detail();    
+  </script>
+  <script>
+    if (document.getElementById("aaa") !== null) {
+      document.getElementById("aa").setAttribute("class", "active");
+      document.querySelector('.bg').style.cssText = `  background-image: url("../../images/overlay.png"),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url("../../images/image61.jpg")` ;
+    } else if (document.getElementById("bbb") !== null) {
+      document.getElementById("bb").setAttribute("class", "active");
+      document.querySelector('.bg').style.cssText = `  background-image: url("../../images/overlay.png"),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url("../../images/image2.jpg")` ;
+    } else if (document.getElementById("ccc") !== null) {
+      document.getElementById("cc").setAttribute("class", "active");
+      document.querySelector('.bg').style.cssText = `  background-image: url("../../images/overlay.png"),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url("../../images/image3.jpg")` ;
+    } else if (document.getElementById("ddd") !== null) {
+      document.getElementById("dd").setAttribute("class", "active");
+      document.querySelector('.bg').style.cssText = `  background-image: url("../../images/overlay.png"),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url("../../images/image51.jpg")` ;
+    } else if (document.getElementById("eee") !== null) {
+      document.getElementById("ee").setAttribute("class", "active");
+      document.querySelector('.bg').style.cssText = `  background-image: url("../../images/overlay.png"),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url("../../images/image21.png")` ;
+    }
+
+
+    if (sessionStorage.getItem("idSession") !== null) {
+      var loginId = document.getElementById("loginCheck")
+      loginId.innerText = "로그아웃"
+      loginId.addEventListener('click', function () {
+        sessionStorage.removeItem("idSession"); // 삭제
+      })
+    }
+    if (sessionStorage.getItem("idSession") == "admin") {
+      var apply = document.getElementById("apply2")
+      apply.innerText = "신청서관리"
+    } function adminCheck() {
+      if (sessionStorage.getItem("idSession") == "admin") {
+        window.location.href = "applylist.html";
+      }
+      else if (sessionStorage.getItem("idSession") !== "admin") {
+          window.location.href = "apply.html";
+      }
+    }
+
+  </script>
+</body>
+
+</html>

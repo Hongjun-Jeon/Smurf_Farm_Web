@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="UTF-8">
+  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+  </head>
+  <body>
+    <h1>Firebase Test</h1>
+    <p>Firebase console에 데이터가 추가 되었는지 확인하세요</p>
+  </body>
+</html>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDGxZI8-Y7M3Zw2esFlYqqLqOLZt9fb_uM",
+  authDomain: "project3-ebc99.firebaseapp.com",
+  databaseURL: "https://project3-ebc99.firebaseio.com",
+  projectId: "project3-ebc99",
+  storageBucket: "project3-ebc99.appspot.com",
+  messagingSenderId: "637799049234",
+  appId: "1:637799049234:web:45904e60f763046df650cb",
+  measurementId: "G-7PNR1Z5R7D"
+};
+  firebase.initializeApp(config);
+  
+  var postData = {
+	brdwriter: "홍길동",
+ 	brdtitle: "게시판 테스트", 
+ 	brdmemo: "게시물 내용", 
+ 	brddate: Date.now()
+  };
+
+  var newPostKey = firebase.database().ref().child('posts').push().key;
+
+  var updates = {};
+  updates['/board/' + newPostKey] = postData;
+
+  firebase.database().ref().update(updates);
+		  
+</script>

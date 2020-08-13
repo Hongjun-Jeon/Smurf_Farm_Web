@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Smurf Farm</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript>
+    <link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+  <script src="./assets/js/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#footer_part").load("footer.html")
+    });
+  </script>
+  <style>
+    .actions {
+      display: flex;
+      justify-content: center;
+      ;
+    }
+  </style>
+</head>
+
+<body class="is-preload" id="ddd">
+  <!-- Wrapper -->
+  <div id="wrapper">
+    <div id="intro">
+      <h1>WE ARE<br />
+        SMURF FARM</h1>
+      <p>당신도 농장의 주인이 될 수 있습니다!
+      </p>
+      </a>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+      <a href="index.html" class="logo">SMURF_FARM</a>
+    </header>
+    <!-- Nav -->
+    <nav id="nav">
+      <ul class="links">
+        <li id=aa><a href="index.html">Welcome</a></li>
+        <li id=bb><a href="introduce.html">소개</a></li>
+        <li id=cc><a href="boardList.html">질의응답</a></li>
+        <li id=dd><a id="apply2" onclick="adminCheck()"> 신청 </a></li>
+        <li id=ee><a id="loginCheck" href="login.html"> 로그인 </a></li>
+        <li id=ff><a id="download"
+            href="https://www.dropbox.com/s/u0fhd1njoh07fos/app-release.apk?dl=0"> 어플
+            다운로드 </a></li>
+        </script>
+
+      </ul>
+      <ul class="icons">
+        <li><a href="https://www.instagram.com/smurf_farm/?hl=ko" class="icon brands fa-facebook-f"><span
+              class="label">Facebook</span></a></li>
+        <li><a href="https://www.instagram.com/smurf_farm/?hl=ko" class="icon brands fa-instagram"><span
+              class="label">Instagram</span></a></li>
+      </ul>
+    </nav>
+
+
+    <!-- Main -->
+    <div id="main">
+      <!-- Form -->
+      <h2 style="text-align: center;">신청서</h2>
+      <form method="post" action="#">
+        <div class="row gtr-uniform">
+          <div class="col-6 col-12-xsmall">
+            <input type="text" name="name" id="name" value="" placeholder="상담하실분 성명" />
+          </div>
+          <div class="col-6 col-12-xsmall">
+            <input type="text" name="tell" id="tell" value="" placeholder="010-0000-0000" />
+          </div>
+          <!-- Break -->
+          <div class="col-12">
+            <select name="category" id="category">
+              <option value="Not_Collect">- 종류 -</option>
+              <option value="Funding">-매칭펀딩</option>
+              <option value="Membership">-제철 농작물 회원권</option>
+              <option value="Equipment_Rental">-설비 대여</option>
+            </select>
+          </div>
+          <!-- Break -->
+          <div class="col-6 col-12-small">
+            <input type="checkbox" id="MCall" name="MCall" />
+            <label for="MCall">주중(09:00~19:00) 통화 가능 여부</label>
+          </div>
+          <div class="col-6 col-12-small">
+            <input type="checkbox" id="NCall" name="NCall" />
+            <label for="NCall">야간(20:00~24:00) 통화 가능 여부</label>
+          </div>
+          <!-- Break -->
+          <div class="col-12">
+            <textarea name="message" id="message" placeholder="질문사항 남겨주시면 다시 연락 드리겠습니다^^"" rows=" 6"></textarea>
+          </div>
+          <!-- Break -->
+          <div class="col-12">
+            <ul class="actions">
+              <li>
+                <input type="submit" value="제출" class="primary" />
+              </li>
+              <li><input type="reset" value="취소" onclick="location.href = 'apply.html'" /></li>
+            </ul>
+          </div>
+        </div>
+      </form>
+      <hr />
+      <!-- Footer -->
+    </div>
+    <footer id="footer_part"></footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.scrollex.min.js"></script>
+  <script src="assets/js/jquery.scrolly.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+
+
+  <script type="text/javascript">
+    function getTimeStamp() {
+      var d = new Date();
+      var s =
+        leadingZeros(d.getFullYear(), 4) + '-' +
+        leadingZeros(d.getMonth() + 1, 2) + '-' +
+        leadingZeros(d.getDate(), 2) + ' ' +
+        leadingZeros(d.getHours(), 2) + ':' +
+        leadingZeros(d.getMinutes(), 2) + ':' +
+        leadingZeros(d.getSeconds(), 2);
+      return s;
+    }
+    function leadingZeros(n, digits) {
+      var zero = '';
+      n = n.toString();
+      if (n.length < digits) {
+        for (i = 0; i < digits - n.length; i++)
+          zero += '0';
+      }
+      return zero + n;
+    }
+  </script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-database.js"></script>
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyDGxZI8-Y7M3Zw2esFlYqqLqOLZt9fb_uM",
+      authDomain: "project3-ebc99.firebaseapp.com",
+      databaseURL: "https://project3-ebc99.firebaseio.com",
+      projectId: "project3-ebc99",
+      storageBucket: "project3-ebc99.appspot.com",
+      messagingSenderId: "637799049234",
+      appId: "1:637799049234:web:45904e60f763046df650cb",
+      measurementId: "G-7PNR1Z5R7D",
+    };
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    var database = firebase.database();
+    let forma = document.querySelector("form");
+    forma.addEventListener("submit", applyUp);
+
+    function applyUp(event) {
+      event.preventDefault();
+
+      var apply_name = document.getElementById("name").value;
+      var apply_tell = document.getElementById("tell").value;
+      var apply_category = document.getElementById("category").value;
+      var apply_MCall = document.getElementById("MCall").value;
+      var apply_NCall = document.getElementById("NCall").value;
+      var apply_message = document.getElementById("message").value;;
+      var apply_date = getTimeStamp();
+      var apply_number = database.ref('boards').push().key;
+
+      database.ref('apply/' + apply_number).set({
+        apply_number: apply_number,
+        apply_name: apply_name,
+        apply_tell: apply_tell,
+        apply_category: apply_category,
+        apply_MCall: apply_MCall,
+        apply_NCall: apply_NCall,
+        apply_message: apply_message,
+        apply_date: apply_date,
+        apply_number: apply_number,
+      })
+      alert("신청이 완료되었습니다.")
+      window.location.href = "index.html";
+    }
+  </script>
+  <script>
+    if (document.getElementById("aaa") !== null) {
+      document.getElementById("aa").setAttribute("class", "active");
+      document.querySelector('.bg').style.cssText = `  background-image: url("../../images/overlay.png"),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url("../../images/image61.jpg")` ;
+    } else if (document.getElementById("bbb") !== null) {
+      document.getElementById("bb").setAttribute("class", "active");
+      document.querySelector('.bg').style.cssText = `  background-image: url("../../images/overlay.png"),
+  linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+  url("../../images/image2.jpg")` ;
+    } else if (document.getElementById("ccc") !== null) {
+      document.getElementById("cc").setAttribute("class", "active");
+      document.querySelector('.bg').style.cssText = `  background-image: url("../../images/overlay.png"),
+  linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+  url("../../images/image3.jpg")` ;
+    } else if (document.getElementById("ddd") !== null) {
+      document.getElementById("dd").setAttribute("class", "active");
+      document.querySelector('.bg').style.cssText = `  background-image: url("../../images/overlay.png"),
+  linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+  url("../../images/image51.jpg")` ;
+    } else if (document.getElementById("eee") !== null) {
+      document.getElementById("ee").setAttribute("class", "active");
+      document.querySelector('.bg').style.cssText = `  background-image: url("../../images/overlay.png"),
+  linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+  url("../../images/image21.png")` ;
+    }
+
+
+    if (sessionStorage.getItem("idSession") !== null) {
+      var loginId = document.getElementById("loginCheck")
+      loginId.innerText = "로그아웃"
+      loginId.addEventListener('click', function () {
+        sessionStorage.removeItem("idSession"); // 삭제
+      })
+    }
+    if (sessionStorage.getItem("idSession") == "admin") {
+      var apply = document.getElementById("apply2")
+      apply.innerText = "신청서관리"
+    } function adminCheck() {
+      if (sessionStorage.getItem("idSession") == "admin") {
+        window.location.href = "applylist.html";
+      }
+      else if (sessionStorage.getItem("idSession") !== "admin") {
+        window.location.href = "applylist.html";
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>
+</body>
+
+</html>

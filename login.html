@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+  <title>Smurf Farm</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript>
+    <link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+  <style>
+    .login_tb {
+      text-align: center;
+    }
+
+    .login_tb tr:nth-child(3) input {
+      margin: 0px 15px;
+    }
+  </style>
+  <script src="./assets/js/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#footer_part").load("footer.html")
+    });
+  </script>
+</head>
+
+<body class="is-preload" id="eee">
+  <!-- Wrapper -->
+  <div id="wrapper">
+
+    <div id="intro">
+      <h1>WE ARE<br />
+        SMURF FARM</h1>
+      <p>당신도 농장의 주인이 될 수 있습니다!
+      </p>
+      </a>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+      <a href="index.html" class="logo">SMURF_FARM</a>
+    </header>
+    <!-- Nav -->
+    <nav id="nav">
+      <ul class="links">
+        <li id=aa><a href="index.html">Welcome</a></li>
+        <li id=bb><a href="introduce.html">소개</a></li>
+        <li id=cc><a href="boardList.html">질의응답</a></li>
+        <li id=dd><a id="apply2" onclick="adminCheck()"> 신청 </a></li>
+        <li id=ee><a id="loginCheck" href="login.html"> 로그인 </a></li>
+        <li id=ff><a id="download"
+            href="https://www.dropbox.com/s/u0fhd1njoh07fos/app-release.apk?dl=0"> 어플
+            다운로드 </a></li>
+
+      </ul>
+      <ul class="icons">
+        <li><a href="https://www.instagram.com/smurf_farm/?hl=ko" class="icon brands fa-facebook-f"><span
+              class="label">Facebook</span></a></li>
+        <li><a href="https://www.instagram.com/smurf_farm/?hl=ko" class="icon brands fa-instagram"><span
+              class="label">Instagram</span></a></li>
+      </ul>
+    </nav>
+    <!-- Main -->
+    <div id="main-wrapper">
+      <div class="container">
+        <!-- Content -->
+        <h2 style="text-align: center;">login</h2>
+
+        <p style="text-align: center;">
+          SMURFF_FARM의 가족분들은 로그인하여주시기 바랍니다.
+        </p>
+
+        <h3 style="text-align: center;">로그인 페이지입니다.</h3>
+        <div id="around">
+          <form name="" id="login">
+            <table class="login_tb">
+              <tr>
+                <td>아이디</td>
+                <td><input type="text" required name="id" id="id" /></td>
+              </tr>
+              <tr>
+                <td>비밀번호</td>
+                <td>
+                  <input type="password" required name="pw" id="pw" />
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <input type="submit" value="로그인" /><input type="button" value="회원가입"
+                    onclick="location.href='join.html'" />
+                </td>
+              </tr>
+            </table>
+          </form>
+        </div>
+        </article>
+      </div>
+    </div>
+    <footer id="footer_part"></footer>
+
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-database.js"></script>
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyDGxZI8-Y7M3Zw2esFlYqqLqOLZt9fb_uM",
+        authDomain: "project3-ebc99.firebaseapp.com",
+        databaseURL: "https://project3-ebc99.firebaseio.com",
+        projectId: "project3-ebc99",
+        storageBucket: "project3-ebc99.appspot.com",
+        messagingSenderId: "637799049234",
+        appId: "1:637799049234:web:45904e60f763046df650cb",
+        measurementId: "G-7PNR1Z5R7D",
+      };
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      var database = firebase.database();
+      const login = document.getElementById("login");
+      login.addEventListener("submit", login_f);
+
+      function login_f(event) {
+        event.preventDefault();
+
+        var id = document.getElementById("id").value;
+        var pw = document.getElementById("pw").value;
+
+        const user_ref = database.ref("users");
+        user_ref.child(id).once("value", function (snapshot) {
+          if (snapshot.exists()) {
+            if (snapshot.val().user_pw === pw) {
+              var logSessionData = id;
+              sessionStorage.setItem("idSession", logSessionData);
+              window.location.href = "index.html";
+            } else {
+              alert("비밀번호를 확인해주세요");
+            }
+          } else {
+            alert("아이디가 존재하지 않습니다.");
+          }
+        });
+      }
+    </script>
+    <script>
+      if (document.getElementById("aaa") !== null) {
+      document.getElementById("aa").setAttribute("class", "active");
+      document.querySelector('.bg').style.cssText = `  background-image: url("../../images/overlay.png"),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url("../../images/image61.jpg")` ;
+      } else if (document.getElementById("bbb") !== null) {
+        document.getElementById("bb").setAttribute("class", "active");
+        document.querySelector('.bg').style.cssText = `  background-image: url("../../images/overlay.png"),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url("../../images/image2.jpg")` ;
+      } else if (document.getElementById("ccc") !== null) {
+        document.getElementById("cc").setAttribute("class", "active");
+        document.querySelector('.bg').style.cssText = `  background-image: url("../../images/overlay.png"),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url("../../images/image3.jpg")` ;
+      } else if (document.getElementById("ddd") !== null) {
+        document.getElementById("dd").setAttribute("class", "active");
+        document.querySelector('.bg').style.cssText = `  background-image: url("../../images/overlay.png"),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url("../../images/image51.jpg")` ;
+      } else if (document.getElementById("eee") !== null) {
+        document.getElementById("ee").setAttribute("class", "active");
+        document.querySelector('.bg').style.cssText = `  background-image: url("../../images/overlay.png"),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url("../../images/image21.png")` ;
+      }
+
+
+      if (sessionStorage.getItem("idSession") !== null) {
+        var loginId = document.getElementById("loginCheck")
+        loginId.innerText = "로그아웃"
+        loginId.addEventListener('click', function () {
+          sessionStorage.removeItem("idSession"); // 삭제
+        })
+      }
+      if (sessionStorage.getItem("idSession") == "admin") {
+        var apply = document.getElementById("apply2")
+        apply.innerText = "신청서관리"
+        apply.addEventListener('click', function () {
+          window.location.href = "applylist.html";
+        })
+      }    function adminCheck(){
+      if (sessionStorage.getItem("idSession") == "admin") {
+        var apply = document.getElementById("apply2")
+            window.location.href = "applylist.html";
+      }
+      else if(sessionStorage.getItem("idSession") !== "admin") {
+        var apply = document.getElementById("apply2")
+            window.location.href = "apply.html";
+      }
+    }
+
+    </script>
+</body>
+
+</html>
